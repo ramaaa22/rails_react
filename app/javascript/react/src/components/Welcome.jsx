@@ -1,11 +1,12 @@
 import * as React from 'react'
 import * as ReactDOM from 'react-dom/client'
 import QuestionList from './QuestionList'
+import NewQuestion from './NewQuestion'
 
 const Welcome = () => {
+
 	return (
 		<div className='container' >
-			<h1>Hello, welcome from React</h1>
 			<QuestionList />
 		</div>
 	)

@@ -10,12 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_02_132946) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_13_130356) do
   create_table "questions", force: :cascade do |t|
     t.string "title"
-    t.string "tag"
+    t.integer "tag_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "likes_count", default: 0
+    t.integer "dislikes_count", default: 0
+    t.index ["tag_id"], name: "index_questions_on_tag_id"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "questions", "tags"
 end
